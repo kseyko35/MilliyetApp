@@ -23,9 +23,9 @@ class CategoryNewsAdapter(
     fragmentManager,
     BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
 ) {
-    override fun getItem(position: Int): Fragment = newsFragmentList[position].fragment
-
     override fun getCount(): Int = newsFragmentList.size
+
+    override fun getItem(position: Int): Fragment = newsFragmentList[position].fragment
 
     override fun getPageTitle(position: Int): CharSequence? =
         newsFragmentList[position].fragmentTitle

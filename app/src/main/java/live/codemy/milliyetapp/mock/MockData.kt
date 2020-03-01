@@ -15,15 +15,15 @@ import live.codemy.milliyetapp.ui.NewsFragment
  */
 
 object MockData {
-    fun getNewsCategoryFragment(fragmentSize: Int): List<FragmentModel> {
+    fun getNewsCategoryFragment(): List<FragmentModel> {
         val fragmentList = ArrayList<FragmentModel>()
 
-        repeat(fragmentSize) { position ->
+        repeat(getTitleList().size) { position ->
             val newsFragment = NewsFragment()
 
             val fragmentModel = FragmentModel(
                 position,
-                getFragmentTitle(position),
+                getTitleList()[position],
                 newsFragment
             )
 
@@ -33,16 +33,16 @@ object MockData {
         return fragmentList
     }
 
-    private fun getFragmentTitle(position: Int): String {
-        return when (position) {
-            0 -> "ANASAYFA"
-            1 -> "YAZARLAR"
-            2 -> "GÜNDEM"
-            3 -> "EKONOMİ"
-            4 -> "SPOR"
-            5 -> "CADDE"
-            6 -> "EĞİTİM"
-            else -> ""
-        }
+    private fun getTitleList(): List<String> {
+        val titleList = ArrayList<String>()
+        titleList.add("ANASAYFA")
+        titleList.add("YAZARLAR")
+        titleList.add("GÜNDEM")
+        titleList.add("EKONOMİ")
+        titleList.add("SPOR")
+        titleList.add("CADDE")
+        titleList.add("EĞİTİM")
+        titleList.add("TEKNOLOJİ")
+        return titleList
     }
 }
