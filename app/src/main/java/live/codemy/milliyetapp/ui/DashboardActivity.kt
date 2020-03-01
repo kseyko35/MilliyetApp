@@ -6,6 +6,7 @@ import kotlinx.android.synthetic.main.activity_dashboard.*
 import live.codemy.milliyetapp.R
 import live.codemy.milliyetapp.adapter.CategoryNewsAdapter
 import live.codemy.milliyetapp.mock.MockData
+import live.codemy.milliyetapp.util.extGetDrawable
 
 class DashboardActivity : AppCompatActivity() {
 
@@ -24,5 +25,7 @@ class DashboardActivity : AppCompatActivity() {
             )
 
         tabLayNewsCategory.setupWithViewPager(vpNewsCategory)
+
+        toolbar.logo = extGetDrawable(R.drawable.milliyet_logo_white)
     }
 }
