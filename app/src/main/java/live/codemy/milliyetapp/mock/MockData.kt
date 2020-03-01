@@ -1,5 +1,6 @@
 package live.codemy.milliyetapp.mock
 
+import live.codemy.milliyetapp.model.BigNewsModel
 import live.codemy.milliyetapp.model.FragmentModel
 import live.codemy.milliyetapp.ui.NewsFragment
 
@@ -44,5 +45,18 @@ object MockData {
         titleList.add("EĞİTİM")
         titleList.add("TEKNOLOJİ")
         return titleList
+    }
+
+    fun getNewsList(newsListSize: Int): List<BigNewsModel> {
+        val bigNewsList = ArrayList<BigNewsModel>()
+        repeat(newsListSize) {
+            val bigNewsModel = BigNewsModel(
+                "https://imgfinans.milliyet.com.tr/i/haber/f_dfdf_321421462285.jpg",
+                "Ertelendi! Kolay alınmış bir karar değil"
+            )
+            bigNewsList.add(bigNewsModel)
+        }
+
+        return bigNewsList
     }
 }
