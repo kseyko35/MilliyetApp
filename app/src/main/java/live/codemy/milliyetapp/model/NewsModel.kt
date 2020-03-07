@@ -11,7 +11,8 @@ package live.codemy.milliyetapp.model
 ╚════════════════════════════╝
  */
 
-data class BigNewsModel(
+data class NewsModel(
     val newsImageUrl: String,
-    val newsTitle: String
+    val newsTitle: String,
+    val itemViewType: Int
 )

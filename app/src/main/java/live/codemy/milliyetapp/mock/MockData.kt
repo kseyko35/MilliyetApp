@@ -1,7 +1,8 @@
 package live.codemy.milliyetapp.mock
 
-import live.codemy.milliyetapp.model.BigNewsModel
+import live.codemy.milliyetapp.enums.NewsType
 import live.codemy.milliyetapp.model.FragmentModel
+import live.codemy.milliyetapp.model.NewsModel
 import live.codemy.milliyetapp.ui.NewsFragment
 
 
@@ -47,16 +48,46 @@ object MockData {
         return titleList
     }
 
-    fun getNewsList(newsListSize: Int): List<BigNewsModel> {
-        val bigNewsList = ArrayList<BigNewsModel>()
+    fun getNewsList(newsListSize: Int): List<NewsModel> {
+        val newsList = ArrayList<NewsModel>()
         repeat(newsListSize) {
-            val bigNewsModel = BigNewsModel(
+            val bigNewsModel = NewsModel(
                 "https://imgfinans.milliyet.com.tr/i/haber/f_dfdf_321421462285.jpg",
-                "Ertelendi! Kolay alınmış bir karar değil"
+                "Ertelendi! Kolay alınmış bir karar değil",
+                NewsType.BIG_NEWS.id
             )
-            bigNewsList.add(bigNewsModel)
+            val smallNewsModel1 = NewsModel(
+                "https://imgfinans.milliyet.com.tr/i/haber/f_dfdf_321421462285.jpg",
+                "Ertelendi! Kolay alınmış bir karar değil",
+                NewsType.SMALL_NEWS.id
+            )
+
+            val smallNewsModel2 = NewsModel(
+                "https://imgfinans.milliyet.com.tr/i/haber/f_dfdf_321421462285.jpg",
+                "Ertelendi! Kolay alınmış bir karar değil",
+                NewsType.SMALL_NEWS.id
+            )
+
+            val smallNewsModel3 = NewsModel(
+                "https://imgfinans.milliyet.com.tr/i/haber/f_dfdf_321421462285.jpg",
+                "Ertelendi! Kolay alınmış bir karar değil",
+                NewsType.SMALL_NEWS.id
+            )
+
+            val smallNewsModel4 = NewsModel(
+                "https://imgfinans.milliyet.com.tr/i/haber/f_dfdf_321421462285.jpg",
+                "Ertelendi! Kolay alınmış bir karar değil",
+                NewsType.SMALL_NEWS.id
+            )
+
+            newsList.add(smallNewsModel1)
+            newsList.add(smallNewsModel2)
+            newsList.add(smallNewsModel3)
+            newsList.add(smallNewsModel4)
+            newsList.add(bigNewsModel)
+
         }
 
-        return bigNewsList
+        return newsList
     }
 }
