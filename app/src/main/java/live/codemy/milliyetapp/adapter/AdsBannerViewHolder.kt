@@ -3,11 +3,12 @@ package live.codemy.milliyetapp.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.adapter_item_big_news.view.*
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.MobileAds
+import kotlinx.android.synthetic.main.adapter_item_ads_banner.view.*
 import live.codemy.milliyetapp.R
 import live.codemy.milliyetapp.model.BaseNewsModel
-import live.codemy.milliyetapp.model.NewsModel
 
 
 /**     Code with ❤
@@ -20,9 +21,9 @@ import live.codemy.milliyetapp.model.NewsModel
 ╚════════════════════════════╝
  */
 
-class BigNewsViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
+class AdsBannerViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
     LayoutInflater.from(parent.context).inflate(
-        R.layout.adapter_item_big_news,
+        R.layout.adapter_item_ads_banner,
         parent,
         false
     )
@@ -31,15 +32,10 @@ class BigNewsViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
         newsModel: BaseNewsModel,
         onItemClickListener: (BaseNewsModel) -> Unit
     ) {
-        Glide.with(itemView.context)
-            .load((newsModel as NewsModel).newsImageUrl)
-            .centerCrop()
-            .into(itemView.imgNews)
-
-        itemView.txtNewsTitle.text = newsModel.newsTitle
-
-        itemView.setOnClickListener {
-            onItemClickListener(newsModel)
-        }
+        MobileAds.initialize(itemView.context) {}
+        itemView.adView.adSize = AdSize.BANNER
+        itemView.adView.adUnitId = "ca-app-pub-3940256099942544/6300978111"
+        val adRequest = AdRequest.Builder().build()
+        itemView.adView.loadAd(adRequest)
     }
 }

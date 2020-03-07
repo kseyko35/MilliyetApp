@@ -13,7 +13,7 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recycNewsList.adapter = NewsListAdapter(MockData.getNewsList(10)) { bigNewsModel ->
+        recycNewsList.adapter = NewsListAdapter(MockData.getNewsList(10)) { baseNewsModel ->
 
         }
     }

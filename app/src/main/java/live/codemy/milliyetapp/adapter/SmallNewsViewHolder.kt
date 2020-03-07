@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.adapter_item_big_news.view.*
 import live.codemy.milliyetapp.R
+import live.codemy.milliyetapp.model.BaseNewsModel
 import live.codemy.milliyetapp.model.NewsModel
 
 
@@ -27,11 +28,11 @@ class SmallNewsViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
     )
 ) {
     fun bind(
-        newsModel: NewsModel,
-        onItemClickListener: (NewsModel) -> Unit
+        newsModel: BaseNewsModel,
+        onItemClickListener: (BaseNewsModel) -> Unit
     ) {
         Glide.with(itemView.context)
-            .load(newsModel.newsImageUrl)
+            .load((newsModel as NewsModel).newsImageUrl)
             .centerCrop()
             .into(itemView.imgNews)
 

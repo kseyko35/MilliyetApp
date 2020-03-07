@@ -3,7 +3,7 @@ package live.codemy.milliyetapp.adapter
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import live.codemy.milliyetapp.enums.NewsType
-import live.codemy.milliyetapp.model.NewsModel
+import live.codemy.milliyetapp.model.BaseNewsModel
 
 
 /**     Code with ❤
@@ -17,8 +17,8 @@ import live.codemy.milliyetapp.model.NewsModel
  */
 
 class NewsListAdapter(
-    private val newsList: List<NewsModel>,
-    private val onItemClickListener: (NewsModel) -> Unit
+    private val newsList: List<BaseNewsModel>,
+    private val onItemClickListener: (BaseNewsModel) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         when (viewType) {
@@ -27,6 +27,9 @@ class NewsListAdapter(
             }
             NewsType.BIG_NEWS.id -> {
                 BigNewsViewHolder(parent)
+            }
+            NewsType.ADS_BANNER.id -> {
+                AdsBannerViewHolder(parent)
             }
             else -> {
                 BigNewsViewHolder(parent)
@@ -43,6 +46,9 @@ class NewsListAdapter(
             }
             NewsType.BIG_NEWS.id -> {
                 (holder as BigNewsViewHolder).bind(newsList[position], onItemClickListener)
+            }
+            NewsType.ADS_BANNER.id -> {
+                (holder as AdsBannerViewHolder).bind(newsList[position], onItemClickListener)
             }
             else -> {
                 (holder as BigNewsViewHolder).bind(newsList[position], onItemClickListener)
